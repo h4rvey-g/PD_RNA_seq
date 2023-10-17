@@ -5,6 +5,8 @@ nextflow run nf-core/differentialabundance \
     --matrix results/star_salmon/salmon.merged.gene_counts.tsv \
     --outdir results/deseq2 \
     --gtf data/references/Homo_sapiens/Ensembl/GRCh38/genes.gtf \
+    --features_type gene \
+    --deseq2_shrink_lfc false \
     -profile docker \
     --max_cpus 40 \
     --max_memory 150.GB \

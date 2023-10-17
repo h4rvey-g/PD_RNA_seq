@@ -29,10 +29,10 @@ alias rmats='/data0/apps/anaconda3/bin/python /data0/apps/anaconda3/bin/rmats.py
     --gtf $genome_gtf \
     --od "$rmats_outdir/" \
     --tmp "$rmats_outdir/tmp/" \
-    --readLength 40 \
+    --variable-read-length \
+    --readLength 51 \
     -t paired \
     --nthread 30 \
-    --statoff \
     --novelSS
 # remove all tmp in subfolders
 find "$rmats_outdir" -name "tmp" | xargs rm -rf
