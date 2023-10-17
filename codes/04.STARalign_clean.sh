@@ -19,11 +19,15 @@ getAlign() {
 		--readFilesIn $indir/${sampleID}_val_1.fq.gz $indir/${sampleID}_val_2.fq.gz \
 		--readFilesCommand zcat \
 		--outFileNamePrefix $outdir/$sampleID/$sampleID \
-		--outSAMtype BAM Unsorted \
+		--outSAMtype BAM SortedByCoordinate \
+		--outReadsUnmapped Fastx --outSAMattrIHstart 0 --outSAMstrandField intronMotif \
+		--outFilterMismatchNmax 999 --outFilterMismatchNoverReadLmax 0.04 --outFilterMatchNminOverLread 0.66 --outFilterScoreMinOverLread 0.66 --outSAMattributes NH HI AS NM MD \
+		--winAnchorMultimapNmax 50 --seedSearchStartLmax 50 --alignIntronMin 20 --alignIntronMax 1000000 --alignMatesGapMax 1000000 --alignSJoverhangMin 8 \
+		--alignSJstitchMismatchNmax 0 -1 0 0 \
 		--outBAMsortingThreadN 5 \
-		--outFilterType Normal \
+		--outFilterType BySJout \
 		--outFilterMultimapNmax 20 \
-		--quantMode TranscriptomeSAM \
+		--quantMode GeneCounts TranscriptomeSAM \
 		--sjdbGTFfile data/references/Homo_sapiens/Ensembl/GRCh38/genes.gtf \
 		--outSAMattrRGline ID:${sampleID} SM:${sampleID} \
 		--runRNGseed 777 --alignSJDBoverhangMin 1
