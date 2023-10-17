@@ -36,4 +36,4 @@ export -f getAlign
 # date
 parallel --progress --keep-order --line-buffer getAlign :::: <(tail -n +2 data/01.fastq/GSE_data/samplesheet.csv | sed -n '2,10p')
 # date
-/data0/apps/anaconda3/bin/multiqc -i STARalign_clean -o test/04.STAR_multi20 test/data/04.STARalign_2
+/data0/apps/anaconda3/bin/multiqc -i STARalign_clean -o test/04.STAR_multi20 test/data/04.STARalign_3
