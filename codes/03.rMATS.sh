@@ -1,18 +1,18 @@
 #!/bin/bash
 workdir=test
-bams_indir=$workdir/chen
-rmats_outdir=$workdir/rMATs
+bams_indir=$workdir/data/04.STARalign_4
+rmats_outdir=$workdir/rMATs_4
 #1: prepare the sample group, rep1 in one group and rep2 in the other.
 sampleMetaPD=./test/rmats_samples_PD.txt
 echo "" >"$sampleMetaPD"
-find "$bams_indir" -name "0*""_PD""Aligned.sortedByCoord.out.bam" | while read -r line; do
+find "$bams_indir" -name "*_PD_*Aligned.sortedByCoord.out.bam" | while read -r line; do
     echo -n "$line," >>"$sampleMetaPD"
 done
 sed -i '1d' "$sampleMetaPD"
 
 sampleMetaCC=./test/rmats_samples_CC.txt
 echo "" >"$sampleMetaCC"
-find "$bams_indir" -name "0*""_CC""Aligned.sortedByCoord.out.bam" | while read -r line; do
+find "$bams_indir" -name "*_CC_*Aligned.sortedByCoord.out.bam" | while read -r line; do
     echo -n "$line," >>"$sampleMetaCC"
 done
 sed -i '1d' "$sampleMetaCC"
