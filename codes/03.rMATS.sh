@@ -36,3 +36,15 @@ alias rmats='/data0/apps/anaconda3/bin/python /data0/apps/anaconda3/bin/rmats.py
     --novelSS
 # remove all tmp in subfolders
 find "$rmats_outdir" -name "tmp" | xargs rm -rf
+# filter significant AS events
+cd results/rMATs
+awk 'NR == 1||($19<0.01 && $20<0.05 && $23 >= 0.1)' SE.MATS.JCEC.txt >sig/SE.sig.gain.txt
+awk 'NR == 1||($19<0.01 && $20<0.05 && $23 >= 0.1)' A5SS.MATS.JCEC.txt >sig/A5SS.sig.gain.txt
+awk 'NR == 1||($19<0.01 && $20<0.05 && $23 >= 0.1)' A3SS.MATS.JCEC.txt >sig/A3SS.sig.gain.txt
+awk 'NR == 1||($19<0.01 && $20<0.05 && $23 >= 0.1)' RI.MATS.JCEC.txt >sig/RI.sig.gain.txt
+awk 'NR == 1||($21<0.01 && $22<0.05 && $25 >= 0.1)' MXE.MATS.JCEC.txt >sig/MXE.sig.gain.txt
+awk 'NR == 1||($21<0.01 && $22<0.05 && $25 <=- 0.1)' MXE.MATS.JCEC.txt >sig/MXE.sig.loss.txt
+awk 'NR == 1||($19<0.01 && $20<0.05 && $23 <= -0.1)' RI.MATS.JCEC.txt >sig/RI.sig.loss.txt
+awk 'NR == 1||($19<0.01 && $20<0.05 && $23 <= -0.1)' SE.MATS.JCEC.txt >sig/SE.sig.loss.txt
+awk 'NR == 1||($19<0.01 && $20<0.05 && $23 <= -0.1)' A5SS.MATS.JCEC.txt >sig/A5SS.sig.loss.txt
+awk 'NR == 1||($19<0.01 && $20<0.05 && $23 <= -0.1)' A3SS.MATS.JCEC.txt >sig/A3SS.sig.loss.txt
