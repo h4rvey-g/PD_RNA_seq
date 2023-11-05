@@ -48,3 +48,13 @@ awk 'NR == 1||($19<0.01 && $20<0.05 && $23 <= -0.1)' RI.MATS.JCEC.txt >sig/RI.si
 awk 'NR == 1||($19<0.01 && $20<0.05 && $23 <= -0.1)' SE.MATS.JCEC.txt >sig/SE.sig.loss.txt
 awk 'NR == 1||($19<0.01 && $20<0.05 && $23 <= -0.1)' A5SS.MATS.JCEC.txt >sig/A5SS.sig.loss.txt
 awk 'NR == 1||($19<0.01 && $20<0.05 && $23 <= -0.1)' A3SS.MATS.JCEC.txt >sig/A3SS.sig.loss.txt
+# sashimiplot
+rmats2sashimiplot \
+    --b1 "$sampleMetaPD" \
+    --b2 "$sampleMetaCC" \
+    --gtf "$genome_gtf" \
+    --l1 PD \
+    --l2 CC \
+    --exon_s 1 \
+    --intron_s 5 \
+    -o $rmats_outdir/sashimiplot
