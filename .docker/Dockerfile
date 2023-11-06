@@ -7,5 +7,5 @@ RUN echo "options(repos = c(CRAN = \"https://packagemanager.posit.co/cran/__linu
     && cat "/home/jovyan/.Rprofile" \
     # install GOplot, clusterProfiler
     && R -e "install.packages('BiocManager')" \
-    && R -e "BiocManager::install(c('GOplot', 'clusterProfiler', 'org.Hs.eg.db'))" \
+    && R -e "BiocManager::install(c('GOplot', 'clusterProfiler', 'org.Hs.eg.db', 'limma', 'edgeR', 'tidyverse', 'DESeq2'))" \
     && rm -rf /tmp/* \
