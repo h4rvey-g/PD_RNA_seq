@@ -6,8 +6,7 @@ RUN echo "options(repos = c(CRAN = \"https://packagemanager.posit.co/cran/__linu
     && cat "/home/jovyan/.Rprofile" \
     # install GOplot, clusterProfiler
     && R -e "install.packages('BiocManager')" \
-    && R -e "BiocManager::install(c('GOplot', 'clusterProfiler', 'org.Hs.eg.db', 'limma', 'edgeR', 'tidyverse', 'DESeq2'))" \
-    && R -e "BiocManager::install(c('pheatmap', 'RColorBrewer'))" \
+    && R -e "BiocManager::install(c('GOplot', 'clusterProfiler', 'org.Hs.eg.db', 'limma', 'edgeR', 'tidyverse', 'DESeq2', 'pheatmap', 'RColorBrewer', 'EnhancedVolcano'))" \
     && rm -rf /tmp/*
 RUN mamba install --yes 'udunits' -c conda-forge && \
     mamba clean --all -f -y && \
